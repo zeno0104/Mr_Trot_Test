@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { Question } from "../components/Question";
-import { useNavigate } from "react-router-dom";
 import { Result } from "../components/Result";
 import { Answer } from "../utils/types";
 
@@ -116,8 +115,6 @@ export const Test = () => {
   ];
   const [showResult, setShowResult] = useState<boolean>(false);
 
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const nav = useNavigate();
   const answerHandler = (e: React.MouseEvent<HTMLButtonElement>) => {
     const selected = e.currentTarget.value as "a" | "b" | "c" | "d";
     setAnswer((prev) => ({
