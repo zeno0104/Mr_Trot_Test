@@ -11,7 +11,7 @@ export const Question = ({
   console.log(options);
   return (
     <div className={`Question ${isTransitioning ? "fade-out" : "fade-in"}`}>
-      <h3>{question}</h3>
+      <h3 className="questionText">{question}</h3>
       <img src={image} alt="" className="image" />
       {Object.entries(options).map(([key, value]) => (
         <button

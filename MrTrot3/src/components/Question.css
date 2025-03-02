@@ -13,6 +13,9 @@
 .Question {
   animation: fadeIn 0.3s ease-in-out;
 }
+.questionText {
+  width: 350px;
+}
 .Question {
   display: flex;
   flex-direction: column;
