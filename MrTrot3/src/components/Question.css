@@ -1,0 +1,23 @@
+.Question {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.selectBtn {
+  width: 300px;
+  margin-bottom: 10px;
+  border: none;
+  padding: 20px;
+  cursor: pointer;
+  border-radius: 10px;
+}
+.selectBtn:hover {
+  background-color: antiquewhite;
+}
+.image {
+  width: 300px;
+  margin-bottom: 20px;
+}

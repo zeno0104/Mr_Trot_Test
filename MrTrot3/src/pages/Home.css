@@ -1,0 +1,29 @@
+.Home {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+  gap: 20px;
+
+  font-weight: bold;
+}
+.title {
+  font-size: 20px;
+}
+.subTitle {
+  font-size: 15px;
+}
+.btn {
+  border: none;
+  padding: 10px 10px;
+  background-color: burlywood;
+  border-radius: 50px;
+  font-size: 20px;
+  color: white;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background-color: brown;
+}
