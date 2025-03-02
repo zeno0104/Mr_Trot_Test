@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Question } from "../components/Question";
 import { Result } from "../components/Result";
 import { Answer } from "../utils/types";
@@ -6,6 +6,8 @@ import { Answer } from "../utils/types";
 export const Test = () => {
   const [curIndex, setCurIndex] = useState(0);
   const [answer, setAnswer] = useState<Answer>({ a: 0, b: 0, c: 0, d: 0 });
+  const [showResult, setShowResult] = useState(false);
+  const [isTransitioning, setIsTransitioning] = useState(false);
   const questions = [
     {
       name: "손빈아",
@@ -113,19 +115,29 @@ export const Test = () => {
       img: "./10.avif",
     },
   ];
-  const [showResult, setShowResult] = useState<boolean>(false);
-
+  useEffect(() => {
+    questions.forEach((q) => {
+      const img = new Image();
+      img.src = q.img;
+    });
+  }, []);
   const answerHandler = (e: React.MouseEvent<HTMLButtonElement>) => {
     const selected = e.currentTarget.value as "a" | "b" | "c" | "d";
     setAnswer((prev) => ({
       ...prev,
       [selected]: prev[selected] + 1,
     }));
-    if (curIndex < questions.length - 1) {
-      setCurIndex((prev) => prev + 1);
-    } else {
-      setShowResult(true);
-    }
+
+    setIsTransitioning(true);
+
+    setTimeout(() => {
+      if (curIndex < questions.length - 1) {
+        setCurIndex((prev) => prev + 1);
+      } else {
+        setShowResult(true);
+      }
+      setIsTransitioning(false);
+    }, 300); // 0.3초 후 변경 (부드러운 전환)
   };
   return (
     <div>
@@ -135,6 +147,7 @@ export const Test = () => {
           options={questions[curIndex].options}
           image={questions[curIndex].img}
           answerHandler={answerHandler}
+          isTransitioning={isTransitioning}
         />
       ) : (
         <Result answer={answer} questions={questions} />
