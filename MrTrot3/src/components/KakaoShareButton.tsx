@@ -7,7 +7,7 @@ interface Index {
 const KakaoShareButton = ({ resultIndex }: Index) => {
   const { img, name } = questions[resultIndex];
   console.log(img, name);
-  const imageUrl = window.location.origin + img;
+  const imageUrl = window.location.origin + "/1.png";
 
   useEffect(() => {
     if (typeof window !== "undefined" && !window.Kakao) {
