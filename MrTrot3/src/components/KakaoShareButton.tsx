@@ -1,31 +1,49 @@
 import { useEffect } from "react";
 import "./KakaoShareButton.css";
 import { questions } from "../utils/peoples";
+
 interface Index {
   resultIndex: number;
 }
+
 const KakaoShareButton = ({ resultIndex }: Index) => {
   const { img, name } = questions[resultIndex];
   const imageUrl = window.location.origin + img;
+  const kakaoApiKey = import.meta.env.VITE_KAKAO_APP_KEY;
+
+  console.log("카카오 API 키:", kakaoApiKey);
+
   useEffect(() => {
-    if (typeof window !== "undefined" && !window.Kakao) {
+    if (!kakaoApiKey) {
+      console.error("카카오 API 키가 없습니다. .env 파일을 확인하세요.");
+      return;
+    }
+
+    const initializeKakao = () => {
+      if (!window.Kakao) {
+        console.error(
+          "Kakao 객체가 없습니다. SDK가 로드되지 않은 것 같습니다."
+        );
+        return;
+      }
+
+      if (!window.Kakao.isInitialized()) {
+        window.Kakao.init(kakaoApiKey);
+        console.log("카카오 SDK 초기화 완료");
+      }
+    };
+
+    // 카카오 SDK 로드 여부 확인
+    if (!window.Kakao) {
       const script = document.createElement("script");
       script.src = "https://developers.kakao.com/sdk/js/kakao.js";
       script.async = true;
-      script.onload = () => {
-        if (window.Kakao) {
-          if (!window.Kakao.isInitialized()) {
-            window.Kakao.init(import.meta.env.VITE_KAKAO_APP_KEY);
-          }
-        }
-      };
+      script.onload = initializeKakao;
       document.head.appendChild(script);
     } else {
-      if (window.Kakao && !window.Kakao.isInitialized()) {
-        window.Kakao.init(import.meta.env.VITE_KAKAO_APP_KEY);
-      }
+      initializeKakao();
     }
-  }, []);
+  }, [kakaoApiKey]);
 
   const handleShare = () => {
     if (!window.Kakao || !window.Kakao.isInitialized()) {
