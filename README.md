@@ -1,5 +1,5 @@
 # <p> 링크</p>
-https://mr-trot-3-test.vercel.app/
+https://mr-trot-test.vercel.app/
 
 # <p>📖 상세 내용</p>
 
