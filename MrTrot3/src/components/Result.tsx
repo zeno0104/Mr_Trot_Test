@@ -3,8 +3,7 @@ import "./Result.css";
 import { ResultProps } from "../utils/types";
 import { Loading } from "./Loading";
 import { useState, useEffect, useRef } from "react";
-import domtoimage from "dom-to-image";
-import { saveAs } from "file-saver";
+import domtoimage from "dom-to-image-more";
 
 export const Result = ({ answer, questions }: ResultProps) => {
   const getResult = () => {
@@ -50,19 +49,15 @@ export const Result = ({ answer, questions }: ResultProps) => {
       return;
     }
 
-    const filter = (node: Node) => {
-      if (node instanceof HTMLElement) {
-        return node.tagName !== "BUTTON";
-      }
-      return true;
-    };
-
     domtoimage
-      .toBlob(card, { filter: filter })
-      .then((blob: Blob | null) => {
-        if (blob) {
-          saveAs(blob, `${questions[resultIndex].name}.png`);
-        }
+      .toJpeg(card, { quality: 0.95 })
+      .then((dataUrl: string) => {
+        const link = document.createElement("a");
+        link.href = dataUrl;
+        link.download = `${questions[resultIndex].name}.jpg`;
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
       })
       .catch((error: string) => {
         console.error("이미지 저장 중 에러 발생:", error);
