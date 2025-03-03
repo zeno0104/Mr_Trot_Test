@@ -3,7 +3,7 @@ import "./Result.css";
 import { ResultProps } from "../utils/types";
 import { Loading } from "./Loading";
 import { useState, useEffect, useRef } from "react";
-import domtoimage from "dom-to-image-more";
+import html2canvas from "html2canvas";
 
 export const Result = ({ answer, questions }: ResultProps) => {
   const getResult = () => {
@@ -42,26 +42,26 @@ export const Result = ({ answer, questions }: ResultProps) => {
 
   const cardRef = useRef<HTMLDivElement>(null);
 
-  const onDownloadBtn = () => {
+  const onDownloadBtn = async () => {
     const card = cardRef.current;
     if (!card) {
       console.error("카드를 찾을 수 없습니다!");
       return;
     }
 
-    domtoimage
-      .toJpeg(card, { quality: 0.95 })
-      .then((dataUrl: string) => {
-        const link = document.createElement("a");
-        link.href = dataUrl;
-        link.download = `${questions[resultIndex].name}.jpg`;
-        document.body.appendChild(link);
-        link.click();
-        document.body.removeChild(link);
-      })
-      .catch((error: string) => {
-        console.error("이미지 저장 중 에러 발생:", error);
-      });
+    try {
+      const canvas = await html2canvas(card);
+      const dataUrl = canvas.toDataURL("image/png");
+
+      const link = document.createElement("a");
+      link.href = dataUrl;
+      link.download = `${questions[resultIndex].name}.png`;
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    } catch (error) {
+      console.error("이미지 저장 중 에러 발생:", error);
+    }
   };
 
   return (
@@ -127,7 +127,7 @@ export const Result = ({ answer, questions }: ResultProps) => {
               사윗감 다시 찾으러 가기
             </button>
             <button className="btn" onClick={onDownloadBtn}>
-              저장하기
+              결과 저장하기
             </button>
             <button className="btn btn_kakao">카카오톡 공유하기</button>
           </div>
