@@ -12,19 +12,18 @@
 
 .Question {
   animation: fadeIn 0.3s ease-in-out;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 50px 0px;
 }
 .questionText {
   width: 280px;
   background-color: antiquewhite;
   padding: 10px 20px;
-  border-radius: 15px;
-}
-.Question {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
   text-align: center;
+  border-radius: 15px;
 }
 
 .selectBtn {
