@@ -93,13 +93,23 @@ export const Result = ({ answer, questions }: ResultProps) => {
               }}
             />
             <div className="hashtags">
-              {questions[resultIndex].hashtag.map(
-                (tag: string, index: number) => (
-                  <p key={index} className="hashtag">
-                    {tag}
-                  </p>
-                )
-              )}
+              <span>🎤</span>
+              {questions[resultIndex].hashtag
+                .reduce((acc: string[][], tag: string, index: number) => {
+                  // 3개씩 묶어서 새로운 행을 만듭니다.
+                  if (index % 3 === 0) acc.push([tag]);
+                  else acc[acc.length - 1].push(tag);
+                  return acc;
+                }, [])
+                .map((row, rowIndex) => (
+                  <div key={rowIndex} className="hashtag-row">
+                    {row.map((tag, index) => (
+                      <p key={index} className="hashtag">
+                        {tag}
+                      </p>
+                    ))}
+                  </div>
+                ))}
             </div>
             <h3
               className="reason_title"

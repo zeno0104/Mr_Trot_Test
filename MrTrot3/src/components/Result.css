@@ -13,20 +13,25 @@
 .button {
   display: flex;
   flex-direction: column;
-
   gap: 20px;
+  padding: 10px;
 }
 .que {
   text-align: center;
 }
 
 .btn {
-  width: 400px;
+  width: 350px;
   font-size: 20px;
 }
 .btn_kakao {
   background-color: #ffdc02;
   color: black;
+}
+.reasons {
+  display: flex;
+  flex-direction: column;
+  padding: 0px 20px;
 }
 .result_title {
   text-align: center;
@@ -36,17 +41,22 @@
 }
 .hashtags {
   display: flex;
-  gap: 10px;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: center;
+  gap: 10px;
 }
+
+.hashtag-row {
+  display: flex;
+  gap: 10px;
+}
+
 .hashtag {
-  font-size: 10px;
+  margin: 0;
   background-color: #c2b6b6;
-  padding: 5px 5px;
-  border-radius: 10px;
   color: white;
-}
-.reason_text {
-  padding: 10px 20px;
+  padding: 5px;
+  border-radius: 5px;
+  font-size: 14px;
 }
