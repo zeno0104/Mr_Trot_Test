@@ -13,7 +13,7 @@ export const AnswerContext = createContext<{
   answer: Answer;
   setAnswer: React.Dispatch<React.SetStateAction<Answer>>;
 } | null>(null);
-
+console.log("test");
 function App() {
   const [answer, setAnswer] = useState<Answer>({ a: 0, b: 0, c: 0, d: 0 });
   console.log("test");
