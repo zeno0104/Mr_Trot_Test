@@ -10,6 +10,10 @@ export interface Question {
   title: string;
   options: { a: string; b: string; c: string; d: string };
   img: string;
+  result_title: string;
+  hashtag: string;
+  reason_title: string;
+  reason_text: string;
 }
 export interface ResultProps {
   answer: Answer;

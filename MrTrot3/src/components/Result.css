@@ -22,3 +22,16 @@
 .btn {
   font-size: 25px;
 }
+
+.result_title {
+  text-align: center;
+}
+.reason_title {
+  text-align: center;
+}
+.reason_text {
+  padding: 10px 20px;
+}
+.hashtag {
+  padding: 10px 20px;
+}
