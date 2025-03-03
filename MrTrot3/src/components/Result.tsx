@@ -2,7 +2,9 @@ import { useNavigate } from "react-router-dom";
 import "./Result.css";
 import { ResultProps } from "../utils/types";
 import { Loading } from "./Loading";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
+import domtoimage from "dom-to-image";
+import { saveAs } from "file-saver";
 
 export const Result = ({ answer, questions }: ResultProps) => {
   const getResult = () => {
@@ -39,6 +41,34 @@ export const Result = ({ answer, questions }: ResultProps) => {
     return () => clearTimeout(timer);
   }, []);
 
+  const cardRef = useRef<HTMLDivElement>(null);
+
+  const onDownloadBtn = () => {
+    const card = cardRef.current;
+    if (!card) {
+      console.error("카드를 찾을 수 없습니다!");
+      return;
+    }
+
+    const filter = (node: Node) => {
+      if (node instanceof HTMLElement) {
+        return node.tagName !== "BUTTON";
+      }
+      return true;
+    };
+
+    domtoimage
+      .toBlob(card, { filter: filter })
+      .then((blob: Blob | null) => {
+        if (blob) {
+          saveAs(blob, `${questions[resultIndex].name}.png`);
+        }
+      })
+      .catch((error: string) => {
+        console.error("이미지 저장 중 에러 발생:", error);
+      });
+  };
+
   return (
     <>
       {loading ? (
@@ -46,10 +76,9 @@ export const Result = ({ answer, questions }: ResultProps) => {
           <Loading />
         </div>
       ) : (
-        <div className="Result">
+        <div className="Result" ref={cardRef}>
           <div>
             <h2 className="que">당신의 미래 사윗감은?👀</h2>
-            <h3 className="title">{questions[resultIndex].name}</h3>
             <img
               className="selectedImg"
               src={questions[resultIndex].img}
@@ -63,25 +92,39 @@ export const Result = ({ answer, questions }: ResultProps) => {
                 __html: questions[resultIndex].result_title,
               }}
             />
-            <h4 className="hashtag">{questions[resultIndex].hashtag}</h4>
+            <div className="hashtags">
+              {questions[resultIndex].hashtag.map(
+                (tag: string, index: number) => (
+                  <p key={index} className="hashtag">
+                    {tag}
+                  </p>
+                )
+              )}
+            </div>
             <h3
               className="reason_title"
               dangerouslySetInnerHTML={{
                 __html: questions[resultIndex].reason_title,
               }}
             />
-            <h3
-              className="reason_text"
-              dangerouslySetInnerHTML={{
-                __html: questions[resultIndex].reason_text,
-              }}
-            />
+            <div className="reasons">
+              {questions[resultIndex].reason_text.map(
+                (reason: string, index: number) => (
+                  <p key={index} className="reason_text">
+                    {reason}
+                  </p>
+                )
+              )}
+            </div>
           </div>
           <div className="button">
             <button className="btn" onClick={() => nav("/")}>
-              돌아가기
+              사윗감 다시 찾으러 가기
             </button>
-            <button className="btn">공유하기</button>
+            <button className="btn" onClick={onDownloadBtn}>
+              저장하기
+            </button>
+            <button className="btn btn_kakao">카카오톡 공유하기</button>
           </div>
         </div>
       )}

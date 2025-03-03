@@ -1,1 +1,1 @@
-{"root":["./src/app.tsx","./src/main.tsx","./src/vite-env.d.ts","./src/components/loading.tsx","./src/components/question.tsx","./src/components/result.tsx","./src/pages/home.tsx","./src/pages/test.tsx","./src/utils/types.ts"],"version":"5.7.3"}
+{"root":["./src/app.tsx","./src/main.tsx","./src/vite-env.d.ts","./src/components/footer.tsx","./src/components/loading.tsx","./src/components/question.tsx","./src/components/result.tsx","./src/pages/home.tsx","./src/pages/test.tsx","./src/utils/types.ts"],"version":"5.7.3"}

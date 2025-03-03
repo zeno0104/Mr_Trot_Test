@@ -12,7 +12,8 @@
 }
 .button {
   display: flex;
-  /* flex-direction: column; */
+  flex-direction: column;
+
   gap: 20px;
 }
 .que {
@@ -20,18 +21,32 @@
 }
 
 .btn {
-  font-size: 25px;
+  width: 400px;
+  font-size: 20px;
 }
-
+.btn_kakao {
+  background-color: #ffdc02;
+  color: black;
+}
 .result_title {
   text-align: center;
 }
 .reason_title {
   text-align: center;
 }
-.reason_text {
-  padding: 10px 20px;
+.hashtags {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
 }
 .hashtag {
+  font-size: 10px;
+  background-color: #c2b6b6;
+  padding: 5px 5px;
+  border-radius: 10px;
+  color: white;
+}
+.reason_text {
   padding: 10px 20px;
 }
