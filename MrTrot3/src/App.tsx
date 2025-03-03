@@ -6,6 +6,7 @@ import { Footer } from "./components/Footer";
 import { createContext, useState } from "react";
 import { Answer } from "./utils/types";
 import { Result } from "./pages/Result";
+import { Analytics } from "@vercel/analytics/react";
 
 // ✅ AnswerContext의 기본값을 명확하게 지정
 export const AnswerContext = createContext<{
@@ -17,6 +18,7 @@ function App() {
   const [answer, setAnswer] = useState<Answer>({ a: 0, b: 0, c: 0, d: 0 });
   return (
     <>
+      <Analytics />
       <AnswerContext.Provider value={{ answer, setAnswer }}>
         <Routes>
           <Route path="/" element={<Home />} />
