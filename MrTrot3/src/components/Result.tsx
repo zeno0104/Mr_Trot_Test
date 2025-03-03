@@ -4,6 +4,7 @@ import { ResultProps } from "../utils/types";
 import { Loading } from "./Loading";
 import { useState, useEffect, useRef } from "react";
 import html2canvas from "html2canvas";
+import { KakaoShareButton } from "./KakaoShareButton";
 
 export const Result = ({ answer, questions }: ResultProps) => {
   const getResult = () => {
@@ -49,6 +50,13 @@ export const Result = ({ answer, questions }: ResultProps) => {
       return;
     }
 
+    // 버튼 영역 숨기기 (공간까지 제거)
+    const buttonDiv = card.querySelector(".button") as HTMLElement;
+    if (buttonDiv) {
+      buttonDiv.style.position = "absolute";
+      buttonDiv.style.opacity = "0";
+    }
+
     try {
       const canvas = await html2canvas(card);
       const dataUrl = canvas.toDataURL("image/png");
@@ -61,6 +69,12 @@ export const Result = ({ answer, questions }: ResultProps) => {
       document.body.removeChild(link);
     } catch (error) {
       console.error("이미지 저장 중 에러 발생:", error);
+    } finally {
+      // 버튼 영역 다시 표시
+      if (buttonDiv) {
+        buttonDiv.style.position = "static";
+        buttonDiv.style.opacity = "1";
+      }
     }
   };
 
@@ -129,7 +143,7 @@ export const Result = ({ answer, questions }: ResultProps) => {
             <button className="btn" onClick={onDownloadBtn}>
               결과 저장하기
             </button>
-            <button className="btn btn_kakao">카카오톡 공유하기</button>
+            <KakaoShareButton />
           </div>
         </div>
       )}
