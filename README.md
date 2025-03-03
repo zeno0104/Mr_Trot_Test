@@ -38,10 +38,11 @@ https://mr-trot-3-test.vercel.app/
 # 🔥기능
 | 홈 | 테스트 |
 |---|---|
-| <p align="center"><img src="https://github.com/user-attachments/assets/1d5b0334-dc96-4ec9-950c-f50e731e8979" width="80%"/></p> | <p align="center"><img src="https://github.com/user-attachments/assets/ca15df3b-e3da-45f9-9a3c-590a7cbb49e6" width="80%" /></p> |
+| <p align="center"><img src="https://github.com/user-attachments/assets/1d5b0334-dc96-4ec9-950c-f50e731e8979" width="80%"/></p> | <p align="center"><img src="https://github.com/user-attachments/assets/afc5660b-45a9-403d-b8b3-15d586e74eb8" width="80%" /></p> |
 
 | 결과 | 카카오톡 공유 |
 |---|---|
-| <p align="center"><img src="https://github.com/user-attachments/assets/83e52065-1ef9-493c-b01c-cf10ea50cad7" width="100%"/></p> | <p align="center"><img src="https://github.com/user-attachments/assets/f8ab63e4-2fde-4d01-868d-7b332c405d4b" width="80%" /></p> |
+| <p align="center"><img src="https://github.com/user-attachments/assets/a204c311-9ac2-4396-bb72-386bce5f7816" width="100%"/></p> | <p align="center"><img src="https://github.com/user-attachments/assets/a4f8222f-4b56-40f2-ba9c-f9df8ed6ae7c" width="80%" /></p> |
+
 
 # 🌱 추후 개발할 내용
