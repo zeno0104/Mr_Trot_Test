@@ -198,6 +198,7 @@ MZ 감성으로 말하자면, "흥 많고 성실한 사윗감 원해? 손빈아�
           image={questions[curIndex].img}
           answerHandler={answerHandler}
           isTransitioning={isTransitioning}
+          curIndex={curIndex}
         />
       ) : (
         <Result answer={answer} questions={questions} />

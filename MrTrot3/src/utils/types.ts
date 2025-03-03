@@ -24,4 +24,5 @@ export interface QuestionType {
   options: Question["options"];
   answerHandler: (e: React.MouseEvent<HTMLButtonElement>) => void;
   image: string;
+  curIndex: number;
 }

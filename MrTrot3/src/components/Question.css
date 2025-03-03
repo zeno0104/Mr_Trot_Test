@@ -14,7 +14,10 @@
   animation: fadeIn 0.3s ease-in-out;
 }
 .questionText {
-  width: 350px;
+  width: 260px;
+  background-color: antiquewhite;
+  padding: 10px 20px;
+  border-radius: 15px;
 }
 .Question {
   display: flex;

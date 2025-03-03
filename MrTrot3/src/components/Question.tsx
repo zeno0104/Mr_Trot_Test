@@ -7,6 +7,7 @@ export const Question = ({
   answerHandler,
   image,
   isTransitioning,
+  curIndex,
 }: QuestionType & { isTransitioning: boolean }) => {
   console.log(options);
   return (
@@ -23,6 +24,7 @@ export const Question = ({
           {value}
         </button>
       ))}
+      <p>{curIndex + 1}/10</p>
     </div>
   );
 };
