@@ -1,9 +1,15 @@
 import { useEffect } from "react";
 import "./KakaoShareButton.css";
+import { questions } from "../utils/peoples";
+interface Index {
+  resultIndex: number;
+}
+const KakaoShareButton = ({ resultIndex }: Index) => {
+  const { img, name } = questions[resultIndex];
+  console.log(img, name);
+  const imageUrl = window.location.origin + img;
 
-const KakaoShareButton: React.FC = () => {
   useEffect(() => {
-    // SDK가 없으면 동적으로 추가
     if (typeof window !== "undefined" && !window.Kakao) {
       const script = document.createElement("script");
       script.src = "https://developers.kakao.com/sdk/js/kakao.js";
@@ -17,7 +23,6 @@ const KakaoShareButton: React.FC = () => {
       };
       document.head.appendChild(script);
     } else {
-      // 이미 로드된 경우 초기화
       if (window.Kakao && !window.Kakao.isInitialized()) {
         window.Kakao.init(import.meta.env.VITE_KAKAO_APP_KEY);
       }
@@ -34,10 +39,9 @@ const KakaoShareButton: React.FC = () => {
       window.Kakao.Share.sendDefault({
         objectType: "feed",
         content: {
-          title: "💍 당신의 미래 사윗감은 남궁진! 💍",
-          description: "내 포춘쿠키 결과 공유",
-          imageUrl:
-            "http://k.kakaocdn.net/dn/Q2iNx/btqgeRgV54P/VLdBs9cvyn8BJXB3o7N8UK/kakaolink40_original.png",
+          title: "당신의 미래 사윗감은?👀",
+          description: `💍 당신의 미래 사윗감은 ${name}! 💍`,
+          imageUrl: imageUrl,
           link: {
             mobileWebUrl: window.location.href,
             webUrl: window.location.href,

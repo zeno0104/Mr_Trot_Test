@@ -9,7 +9,6 @@ export const Question = ({
   isTransitioning,
   curIndex,
 }: QuestionType & { isTransitioning: boolean }) => {
-  console.log(options);
   return (
     <div className={`Question ${isTransitioning ? "fade-out" : "fade-in"}`}>
       <h3 className="questionText">{question}</h3>

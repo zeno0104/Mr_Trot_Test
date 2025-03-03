@@ -26,3 +26,8 @@ export interface QuestionType {
   image: string;
   curIndex: number;
 }
+
+export interface Result {
+  questions: Question;
+  resultIndex: number;
+}

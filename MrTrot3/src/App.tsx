@@ -3,15 +3,28 @@ import "./App.css";
 import { Home } from "./pages/Home";
 import { Test } from "./pages/Test";
 import { Footer } from "./components/Footer";
+import { createContext, useState } from "react";
+import { Answer } from "./utils/types";
+import { Result } from "./pages/Result";
+
+// ✅ AnswerContext의 기본값을 명확하게 지정
+export const AnswerContext = createContext<{
+  answer: Answer;
+  setAnswer: React.Dispatch<React.SetStateAction<Answer>>;
+} | null>(null);
 
 function App() {
+  const [answer, setAnswer] = useState<Answer>({ a: 0, b: 0, c: 0, d: 0 });
   return (
     <>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/test" element={<Test />} />
-      </Routes>
-      <Footer />
+      <AnswerContext.Provider value={{ answer, setAnswer }}>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/test" element={<Test />} />
+          <Route path="/result/:id" element={<Result />} />
+        </Routes>
+        <Footer />
+      </AnswerContext.Provider>
     </>
   );
 }
