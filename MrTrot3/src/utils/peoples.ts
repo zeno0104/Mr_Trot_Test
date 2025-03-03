@@ -28,7 +28,7 @@ export const questions = [
       c: "요리를 돕거나 가족들을 세심하게 챙긴다.",
       d: "모두를 위해 특별한 선물을 준비해 깜짝 감동을 준다.",
     },
-    img: "/2.avif",
+    img: "/2.jpg",
     result_title: "💍 당신의 미래 사윗감은 춘길! 💍",
     hashtag: [
       "#감성보컬",
@@ -53,7 +53,7 @@ export const questions = [
       c: "부드럽고 따뜻한 인상",
       d: "남자다운 강렬한 느낌",
     },
-    img: "/3.avif",
+    img: "/3.jpg",
     result_title: "💍 당신의 미래 사윗감은 김용빈! 💍",
     hashtag: [
       "#트로트신동",
@@ -80,7 +80,7 @@ export const questions = [
       c: "현실적인 조언과 따뜻한 배려를 아끼지 않는 사람",
       d: "유머와 센스로 언제나 웃음을 주는 사람",
     },
-    img: "/4.avif",
+    img: "/4.jpg",
     result_title: "💍 당신의 미래 사윗감은 최재명! 💍",
     hashtag: [
       "#국악트롯킹",
@@ -161,7 +161,7 @@ export const questions = [
       c: "미안하다고 감성적으로 사과하는 스타일",
       d: "선물이나 이벤트로 화를 푸는 스타일",
     },
-    img: "/7.webp",
+    img: "/7.jpg",
     result_title: "💍 당신의 미래 사윗감은 남승민! 💍",
     hashtag: [
       "#트롯천재",
@@ -240,7 +240,7 @@ export const questions = [
       c: "서로를 아껴주고 위하는 가정",
       d: "경제적으로 풍족한 가정",
     },
-    img: "/10.avif",
+    img: "/10.jpg",
     result_title: "💍 당신의 미래 사윗감은 천록담! 💍",
     hashtag: ["#트롯신예", "#맑은음색", "#감성장인", "#무한성장가능성"],
     reason_title: "✔ 사위로서 천록담이 뽑힌 이유!",
