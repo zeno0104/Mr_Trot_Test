@@ -16,7 +16,7 @@ export const AnswerContext = createContext<{
 
 function App() {
   const [answer, setAnswer] = useState<Answer>({ a: 0, b: 0, c: 0, d: 0 });
-  console.log("test");
+
   return (
     <>
       <Analytics />
