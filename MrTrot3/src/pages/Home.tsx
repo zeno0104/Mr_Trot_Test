@@ -1,5 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import "./Home.css";
+import AdFit from "../components/DisplayAd";
 
 export const Home = () => {
   const nav = useNavigate();
@@ -16,6 +17,7 @@ export const Home = () => {
         <button className="btn" onClick={() => nav("/test")}>
           미래 사윗감 찾기
         </button>
+        <AdFit />
       </div>
     </div>
   );
