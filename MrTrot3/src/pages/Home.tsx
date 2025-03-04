@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import "./Home.css";
-import AdFit from "../components/DisplayAd";
+import AdFit from "../components/Adfit";
 
 export const Home = () => {
   const nav = useNavigate();

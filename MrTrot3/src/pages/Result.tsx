@@ -4,6 +4,7 @@ import html2canvas from "html2canvas";
 import { KakaoShareButton } from "../components/KakaoShareButton";
 import { questions } from "../utils/peoples";
 import "./Result.css";
+import AdFitResult from "../components/AdfitResult";
 export const Result = () => {
   const { id } = useParams(); // ✅ URL에서 id 가져오기
   const resultIndex = Number(id) - 1; // ✅ 배열 인덱스는 0부터 시작
@@ -48,6 +49,7 @@ export const Result = () => {
         <h2 className="que">당신의 미래 사윗감은?👀</h2>
         <img className="selectedImg" src={questions[resultIndex].img} alt="" />
       </div>
+      <AdFitResult />
       <div>
         <h3
           className="result_title"
