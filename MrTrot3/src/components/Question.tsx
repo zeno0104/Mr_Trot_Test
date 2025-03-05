@@ -1,4 +1,5 @@
 import { QuestionType } from "../utils/types";
+import AdFit from "./Adfit";
 import "./Question.css";
 
 export const Question = ({
