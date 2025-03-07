@@ -1,7 +1,6 @@
 import { useEffect } from "react";
 import "./KakaoShareButton.css";
 import { questions } from "../utils/peoples";
-
 interface Index {
   resultIndex: number;
 }
